@@ -1,0 +1,31 @@
+﻿By Default session uses cookies
+	Session Id is stored as cookie on the client computer.This session id, is then, used by webserver to identify
+	if the request is coming from the same user or different user.
+
+Some of the users,don't like websites writing  information  to their computers.So it is very common for users to disable 
+cookies.If that is the case,then websites using cookies ,to manage the session may not work as expected.
+However,to overcome this problem cookieless session can be enabled To enable cookieless sessions,set cookieless="true"
+in webconfig.
+
+Http is a stateless protocol.To identify if request is coming from same server or from different to webserver.
+it generate an unique sessionid
+
+google chrome->inspect element->Resources->cookies->localhost->ASP.net session id is there
+
+to disable cookies
+setting -> search cookies->content cookies->check radio btn 'Block sites from setting any data'
+
+for cookieless session 
+configure <sessionState mode="InProc" timeout="20" cookieless="true"></sessionState> in web.config 
+http://localhost:65059/(S(clhlidwffuraj0ta4rqc2gdy))/WebForm1.aspx
+
+
+When cookieless sessions are enabled,the session id's  part of the URL and is sent back  and forth between the client  and the webserver
+with every request and response.
+
+the webserver ,uses  the session id from the URL ,to identify  if the request  has come from  the same user or differnet user
+
+To cookieless sessions to work correctly ,relative URL's must be used in the application when redirecting users to different webform 
+eg. Response.Redirect("~/WebForm2.aspx") Relative URL
+
+Response.Redirect("http://localhost:65059/WebForm1.aspx")  //absolute URL

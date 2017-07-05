@@ -1,0 +1,17 @@
+﻿
+Web Service Definition Language WSDL
+How we consume services?
+	Windows Communication Foundation supports following three ways to generate proxy for a WCF Service.
+
+	1.Adding Service Reference
+	2.Implementing ClientBase
+	3.Using Tool i.e. SvcUtil.exe
+
+
+
+Why to create a Proxy class?
+For a client to consume a Web service, the client must know; 
+
+Where the Web service is located
+How to invoke the methods of a web service
+Creating a soap message 

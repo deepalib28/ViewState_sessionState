@@ -1,0 +1,16 @@
+﻿/*
+In an ASP.NET web application ,Global.asax file containsthe application level events.
+Application  events are used to intialize data that needs to be availbal to all the current sessions of the application 
+Session events are used to intilaize data that needs to be avialble only for a given individual sessions but not muliple sessions.
+
+session is a unique instance of browser
+how to get new session id and force to Session_start() event to execute?
+1.Close the existing browser window and then open new instance of browser.
+2.Open new instance of different browser
+3.Use cookie less sessions
+<sessionstate mode="InProc" cookieless="true"/>
+
+default session timeout value 20 min 
+
+
+*/

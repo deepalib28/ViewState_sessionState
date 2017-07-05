@@ -1,0 +1,45 @@
+﻿Asp.net session state mode is set in webconfig.
+1. Off
+2.Inproc
+3.StateServer
+4.SqlServer
+5.Custom want to store on own system like oracle
+
+Inside process -in proc 
+outside process-stateserver ,sql server
+
+When the session state mode is set to  Inproc,the session state variable are stored on the web server memory inside the asp.net
+worker process .This is default session state mode 
+
+to see worker process open task manager->clik on show all processses->w3wp.exe(IIS worker process)
+In proc
+<sessionState mode="Inproc" timeout="20"></sessionState>
+
+Note :
+Web Garden: Web application deployed  on a server with multiple  processors.
+Web Farm: Web application  deployed  on multiple server
+
+Advantage of  InProc 
+1. Very esay to implement.All that is required is ,to sest ,the session state mode= inproc in web.config file.
+2. will perform best  because  the session state  memory is kept  on the webserver,within the asp.net worker process(w3wp.exe)
+   easy to read write .always better to read from memory and not from harddisk.
+3. suited for web application hosted on a single server.
+4.Object can be  added   without serialization.
+
+DisAdvantage 
+1. Session state  data is lost,when the worker process or application pool is recycled.
+2.Not suitable  for webfarms and webgarden
+
+WebFarm  not used in In Proc 
+same app on each server
+Webserver<-------------------
+							|
+							|
+webserver<------------->Load balancer  <---------------------- >Client
+							|
+
+webserver<------------------|
+
+request comes to least busy server store session worker process.no session will be found if request goes to 2nd web server.
+
+3.Scalability could be an issue.(1000 of user memory run out of space,paging)

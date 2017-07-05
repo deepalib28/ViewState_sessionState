@@ -1,0 +1,48 @@
+﻿events can occur in 3 levels in an application
+1.Application eg :session start
+2.Pagelevel   eg. page_load
+3.control level eg. selected index changed event of dropdown
+
+Web application work on stateless protocol.Every time a request is made for a webform the following sequence of events occur
+1.Web Application creates an instance of  the requested webforms.
+2.Process the events of the webforms
+3.Genertaed the html and sends the html back to the requested client
+4.The webforms gets destroyed and removed from the memory
+
+Page events
+1.PreInit
+	-This event happens just before page initalization event starts.
+	-isPostback.Iscallback properties are set at this stage
+	-allows us to set master page and themes dynamically.
+	-extemly used when working with dynamic controls.
+2.Init
+	-initialization of all the individual controls on the webform
+	-Use this events to read or initialize control propertires
+	-The server controls loaded and initialsed from the web forms viewstate(viewstate restoration happens at this event)
+3.InitComplete
+	-just happens after page initialisation
+4.PreLoad
+	-Just happens before Page_load event
+5.Load
+	-event occur before the load event of individual controls
+6.Control Events
+	-cotrol events like button click,dropdownlist selected etc events are raised
+7.LoadComplete
+	-event raised after the control events are handled
+8.PreRender
+	-Raised just before the rendering stage of the page
+9. PreRenderComplete
+	-Raised immeiately after the prerender event
+10 Unload
+	-Raised for each controls and then for page.Page is unloaded from the memory.
+
+
+	Server side events
+1.Postback events
+2.cached events
+3.Validation events
+
+server.Map gives physical path of project
+~root directory server.Map("~")
+current directory  server.Map(".")
+parent directory  server.Map("..")

@@ -1,0 +1,14 @@
+﻿cookies store small amount of  information on the client's machine.
+
+2 types of  cookies
+	1. Persistant cookies:
+			i.Remain  on the cliebt computer ,even after the browser is closed.
+			ii. You can congigure how long  the cookies remain using  the expires properyty of HttpCookie object.
+			iii introduce expire time.
+	2.Non Persistant
+		i.If you don't set the expires property then the cookie is called as non persisitant
+		ii. Only remain in memory until the browser is closed.
+		iii.life time until browser is closed. 
+After runnig the application u will retrieve name  from the cookie,but when type the same url on another browser the value can not be retrieved .
+
+

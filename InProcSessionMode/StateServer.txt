@@ -1,0 +1,27 @@
+﻿When the session state server mode is set to State server,the session  state variables  are stored in a process,called 
+as asp.net	state service.	
+
+The asp.net state service can be present  on a webserver or a dedicated  machine.
+start service
+ <sessionState mode="StateServer" stateConnectionString="tcpip=localhost:42424" timeout="20" ></sessionState>
+
+ Advantage
+ 1.ASP.Net worker process independent,survives when worker process restarts
+ 2.Can be used as Webfarms and web gardens	
+
+    -------------------  Webserver<-------------------
+	|												  |
+	V|												  |
+ state server           webserver<------------->Load balancer  <---------------------- >Client
+	^|												  |
+	|												  |
+    |--------------------webserver<-------------------|
+
+
+ 3. provide more scalabilitythan In proc
+
+
+ Disadvantage
+ 1.Slower than InProc
+ 2.Complex objects need tto serializs and deserialized
+ 3.If the state server is on a dedicated  machine  and if the server goes down  allthe sessions are lost.

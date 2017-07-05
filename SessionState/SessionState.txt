@@ -1,0 +1,20 @@
+﻿Just like query string,Session state variables can also be used to send data from one  webform to another.
+
+Points to remember
+1.Session state variables are stored on the webserver by default,and are kept for the lifetime of a session.
+we can set timeout property for session 
+need to do specify session time out propersty otherwise there is problem of out of memory.
+default time out of inproc is 20 mins
+
+2. default mode is inproc.
+
+3. single user global data(seesion state variables are available across all the pages,but only for single session.)
+4. It is always a good practice to check null, if session state vaiable is null before calling any methods such as toString() otherwise there is 
+	a null reference exception.
+
+5. Disable session state for particular page 
+<%@ Page Language="C#" EnableSessionState="false" AutoEventWireup="true" CodeBehind="WebForm1.aspx.cs" Inherits="SessionState.WebForm1" %>
+6.  In web.config  application level
+  <sessionState mode="Off" timeout="20"></sessionState>
+
+ disabling session if not using improve performance

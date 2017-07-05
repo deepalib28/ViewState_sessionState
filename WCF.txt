@@ -1,0 +1,124 @@
+WCF -Windows COmmunication foundation is  microsoft platform  for building  distributed and interoperable applications.
+
+Distrributed  applicatiuon -application  where parts of it run on 2  or more  computer nodes.also called as connected systems.
+
+ex. web application  running  on one machine  and web  service that this application is consuming  is running on another 
+machine
+
+web application server<---->webservice server
+   
+-----------------------------------------
+
+To improve scalability -No of user incearse don't want to decrade the performance
+eg.an  enterprise  web application may have  following tiers and each tier may be running on a different machine 
+
+
+Server with Presentation tier<--->Server with business tier<--->Server with data access tier
+more capabiltiy
+their own process and memory 
+
+Why build distributed application
+1.An enterprise application may need to use  the services provided by other enterprises
+	eg. enterprice application may want to use paypal  serviuce for payments
+
+2.scalability
+
+----------------------------
+	What is interoperable  application 
+	An application that can be communicated with any other application that is built on any other platform.
+
+	-Web services are interoperable ,where as .NET remoting services are not.Web services can communicate with any application 
+	built on any platform whereas .NET remoting service can consumed only by another .net application.
+	--------------------------
+	what technology	choices did we have before WCF to build distributed application?
+	1.Enterprise service
+	2.dot net Remoting 
+	3.Web service
+
+	----------------------------
+	why should we use 
+	We haeve 2 clients and we need to implement a service for them 
+	
+	The first client is using Java application to interact with our service,so far interoperability  
+	this client  wants messages to be in  XML format and the protocol to be HTTP
+
+	Without WCF,to satify first client  requirment we end up implementing  an asmx  web service.
+
+
+								Client built on any platform 
+								can consume  a web service
+
+								HTTP Protocol
+	Java Web Application	<----------------------------------------------->Dot Net webservice
+								   XML Message Format
+							XML  over HTTP offers  interoperability
+
+	Second client uses.net so far for better  performance this client  wants messages formatted in binary  over TCP protocol.
+
+
+								With remoting  both client and 
+								server must be in .net	
+								
+								  TCP Protocol
+	Client window Application<--------------------------------------------------->Dot net remoting service 
+									Binary message format 
+									Binary over TCP offers better performance
+
+
+-----
+To Unify  and bring all these communication technology under one roof microsoft come up with a single programming  model
+that is WCF.
+
+-------------------
+With WCF
+we implement  one service and we can configure as many endpoints as want to support all the client needs.to support the 
+above 2 client requiremnt we would configur 2 endpoints.In the endpoint configuration we can specify the protocols 
+and message  format taht we want  to use.
+
+
+
+								Http Protocol
+Java web appplication	<---------------------------------------------------------------------->|Enddpoint 1
+									XML  Message format															|
+																								|
+																								|WCF
+																								|
+										TCP protocol														|
+Cleints windows application<------------------------------------------------------------------>	|Endpoint2 
+										Binary Message
+																								|
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
